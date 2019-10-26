@@ -15,11 +15,7 @@ Route::get('/', function () {
     return view('welcome',['name' => 'Yarik']);
 });
 
-Route::get('/about',function(){
-    return view('about');
-});
-
-Route::get('/contacts',function(){
-    return view('contacts');
-});
-
+//App Info
+Route::get('/about','AppInfo@About');
+Route::get('/contacts','AppInfo@Contacts');
+Route::get('/license','GPL');

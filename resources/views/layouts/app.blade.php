@@ -12,6 +12,7 @@
 <a href="/">Welcome</a>
 <a href="/about">about</a>
 <a href="/contacts">contacts</a>
+<a href="/license">license</a>
 </nav>
 
 @yield('content')
