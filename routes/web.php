@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('/about','AppInfo@About');
 Route::get('/contacts','AppInfo@Contacts');
 Route::get('/license','GPL');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
