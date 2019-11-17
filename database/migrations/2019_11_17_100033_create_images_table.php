@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifUsersAddAvatar extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class ModifUsersAddAvatar extends Migration
      */
     public function up()
     {
-        Schema::table('users',function (Blueprint $table){
-            $table->string('avatar')->nullable();
+        Schema::create('images', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->string('url');
+            $table->string('filename');
+            $table->string('alt')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,9 +29,6 @@ class ModifUsersAddAvatar extends Migration
      */
     public function down()
     {
-        Schema::table('users',function (Blueprint $table){
-            $table->dropColumn('avatar')->nullable();
-        });
+        Schema::dropIfExists('images');
     }
-
 }
