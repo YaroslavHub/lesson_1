@@ -25,7 +25,7 @@ class ImagesController extends Controller
      */
     public function create()
     {
-        //
+       //
     }
 
     /**
@@ -83,6 +83,9 @@ class ImagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('images')
+        ->where('id','=',$id)
+        ->delete();
+        return redirect('/image-manager/');
     }
 }

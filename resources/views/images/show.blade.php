@@ -1,5 +1,6 @@
 <h1>Image</h1>
-<a href="/image-manager">Image Manager</a></br>
+<a href="/image-manager">Image Manager</a>
+<br>
 
 [[E]] [[X]]
 
@@ -8,8 +9,10 @@
 
 <table>
     <tr>
-        <td>@component('btn_edit')
-@endcomponent</td>
+        <td>
+@component('btn_edit')
+@endcomponent
+</td>
     </tr>
     <tr>
         <td> ID:</td>
@@ -31,10 +34,13 @@
     </tr>
 
     <tr>
-        <td>@component('btn_delete')
+        <td>
+        <button>
+        [[X]]
+        </button>
+@component('btn_delete')
 @endcomponent
 </td>
     </tr>
 </table>
 
-ID:{{$img}}
