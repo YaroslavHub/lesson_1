@@ -1,3 +1,3 @@
-<button style="background-color:red;color:black">
+<button style="background-color:silver;color:black">
 {{$slot}}
 </button>

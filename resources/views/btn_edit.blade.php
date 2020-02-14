@@ -1,3 +1,3 @@
 @component('btn_base')
-[[E]]
+    <a href="/image-manager/{{$slot}}/edit">[[EDIT]]</a>
 @endcomponent

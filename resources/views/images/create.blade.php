@@ -5,20 +5,20 @@
 @csrf
 <label for="im_title">
 Title
-</lable>
-<input type="text" name="im_title" id="im_title"></input>
+</label>
+<input type="text" name="im_title" id="im_title">
 <br>
 
 <label for="im_alt">
 Alternative
-</lable>
-<input type="text" name="im_alt" id="im_alt"></input>
+</label>
+<input type="text" name="im_alt" id="im_alt">
 <br>
 
 <label for="im_file">
 Title
-</lable>
-<input type="file" name="im_file" id="im_file"></input>
+</label>
+<input type="file" name="im_file" id="im_file">
 <br>
 <input type="submit">
 </form>

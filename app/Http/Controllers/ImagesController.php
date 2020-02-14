@@ -36,6 +36,17 @@ class ImagesController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $title = $request ->input('im_title');
+        $alt = $request -> input('im_alt');
+        $file = $request -> file('im_file');
+        $path = $file -> store('public'); 
+        $url = str_replace('public/' , '/storage/' , $path);
+        Db::table('images') -> insertGetId([
+        'url'=>$url,
+        'filename' => $path,
+        'alt' => $title . '(' . $alt .')'
+        ]);
         return redirect('/image-manager');
     }
 
@@ -60,7 +71,9 @@ class ImagesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $image = DB::table('images') -> find($id);
+        return view('images.edit',[ 'img' => $image ]);
+
     }
 
     /**
@@ -72,7 +85,18 @@ class ImagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $alt = $request->input('name_alt');
+        $filename = $request->file('name_alternative');
+        $url = $request->input('name_url');
+
+        /*
+        $title = $request ->input('name_alt');
+        $alt = $request -> input('name_alternative');
+        $file = $request -> file('name_url');
+        $path = $file -> store('public'); 
+        */
+        return redirect('/image-manager');
     }
 
     /**

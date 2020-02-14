@@ -4,9 +4,6 @@
 
 [[E]] [[X]]
 
-
-
-
 <table>
     <tr>
         <td>
@@ -16,7 +13,7 @@
     </tr>
     <tr>
         <td> ID:</td>
-        <td>{{$img->id}}</td>
+        <td>{{$img -> id}}</td>
     </tr>
 
     <tr>

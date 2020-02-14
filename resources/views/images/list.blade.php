@@ -20,11 +20,12 @@ table {
     <table>
     @foreach($imgs as $i)
         <tr>
-            <td {{$i->id}} >
-            <button>
+            <td {{$i -> id}} >
+              
             @component('btn_edit')
-        @endcomponent
-            </button>
+                {{$i->id}}
+            @endcomponent
+            
             </td>
             <td>
                 <a href="/image-manager/{{$i->id}}">{{$i ->url}}</a><br>
