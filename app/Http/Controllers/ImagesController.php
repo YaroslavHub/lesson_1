@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ImagesController extends Controller
 {
+   /* public function __construct(){
+        $this->middleware('auth');
+    }*/
+
     /**
      * Display a listing of the resource.
      *
@@ -85,17 +90,29 @@ class ImagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $alt = $request->input('name_alt');
-        $filename = $request->file('name_alternative');
-        $url = $request->input('name_url');
+        $images = DB::table('images') -> find($id);
+        $path = $images->filename;
+        $url = $images->url;
+        //
+        $title = $request->input('im_title');
+        $alt = $request->input('im_alt');
 
-        /*
-        $title = $request ->input('name_alt');
-        $alt = $request -> input('name_alternative');
-        $file = $request -> file('name_url');
-        $path = $file -> store('public'); 
-        */
+        if($request->hasFile('im_file')){
+            $forDelPath = $path;
+            $file = $request -> file('im_file'); 
+            $path = $file -> store('public'); 
+            $url = str_replace('public/' , '/storage/' , $path);
+        }
+
+        Db::table('images') 
+        ->where('id','=',$id)
+        -> update([
+            'url'=>$url,
+            'filename' => $path,
+            'alt' => $title . '(' . $alt .')'
+            ]);
+            
+//Storage::delete($forDelPath);
         return redirect('/image-manager');
     }
 
@@ -107,6 +124,8 @@ class ImagesController extends Controller
      */
     public function destroy($id)
     {
+        $image = DB::table('images') -> find($id);
+        Storage::delete($image->filename);
         DB::table('images')
         ->where('id','=',$id)
         ->delete();

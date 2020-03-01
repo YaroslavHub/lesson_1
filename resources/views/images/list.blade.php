@@ -12,10 +12,9 @@ table {
 </style>
 <div id="table1">
 
-<button>
+
 @component('btn_create')
         @endcomponent
-</button>
 
     <table>
     @foreach($imgs as $i)
